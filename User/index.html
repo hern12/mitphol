@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/bulma.css">
+        <link rel="stylesheet" href="../css/custom.css">
+        <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.css">
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <my-menu></my-menu> 
+            <section class="section">
+                <div class="container">
+                    <div class='columns is-mobile'>
+                        <user-page-menu  class='pageMenu-wrap' id="" Title="เบิกน้ำตาลออกจากระบบ"></user-page-menu>
+                        <user-page-menu  class='pageMenu-wrap' id="" Title="ปริมาณคงเหลือในระบบ"></user-page-menu>
+                    </div>
+                    <div class="tbWrapper">  
+                        <h2>ปริมาณคงเหลือในระบบ</h2> 
+                        <div class='tableParent'>
+                            <user-sugar></user-sugar>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+    <script>
+        let Menu = {
+            template: `<header class="nav headerBar">
+                            <div class="nav-left">
+                                <a class="nav-item hamburger" v-on:click="openSideNav()">
+                                    <i class="fa fa-bars" aria-hidden="true" ></i>
+                                </a>
+                            </div>
+                            <div id="mySidenav" class="sidenav">
+                                <a href="javascript:void(0)" class="closebtn" v-on:click="closeSideNav()">&times;</a>
+                                <a href="#">Home</a>
+                                <a href="#">Services</a>
+                                <a href="#">Clients</a>
+                                <a href="#">Contact</a>
+                            </div>
+                        </header>`,
+           data: function () {
+                return {
+                   navBarSide : null
+                }
+           },
+           methods:{
+               openSideNav: function () {
+                this.navBarSide = 250;
+                document.getElementById("mySidenav").style.width = "250px";
+               },
+               closeSideNav: function () {
+                this.navBarSide = 0;
+                document.getElementById("mySidenav").style.width = "0";
+               }
+           }
+        }
+        let totalSugar = {
+            template: `<table class="table is-bordered is-striped is-narrow is-mobile">
+               <thead>
+                <tr>
+                    <th rowspan="2">ลำดับ</th>
+                    <th rowspan="2">รายการ</th>
+                    <th rowspan="2">รหัส</th>
+                    <th rowspan="2">บรรจุ</th>
+                    <th>จำนวน</th>
+                    <th colspan="3">ราคา/บาท</th>
+                    <th colspan="3">ราคา/บาท</th>
+                    <th rowspan="2">จำนวนเงิน</th>
+                </tr>
+                <tr>
+                    <th>กระเป๋า</th>
+                    <th>จำนวน</th>
+                    <th>กระสอบ/หีบ</th>
+                    <th>ติดจอง</th>
+                    <th>จำนวน</th>
+                    <th>ถุง/กล่อง</th>
+                    <th>ติดจอง</th>
+                </tr>   
+               </thead>
+               <tbody>
+                   <tr>
+                       <td class='body-td-center'>1</td>
+                       <td class='body-td-left'>กระเป๋าน้ำตาล(ใบใหญ่) @ 107.-บาท</td>
+                       <td class='body-td-center'>S3013340000</td>
+                       <td class='body-td'></td>
+                       <td class='body-td'></td>
+                       <td class='body-td'></td>
+                       <td class='body-td-right'>1000</td>
+                       <td class='body-td-right'>600</td>
+                       <td class='body-td'></td>
+                       <td class='body-td-right'>1000</td>
+                       <td class='body-td-right'>200</td>
+                       <td class='body-td-right'></td>
+                   </tr>
+                   <tr>
+                       <td class='body-td-center'>2</td>
+                       <td class='body-td-left'>กระเป๋าน้ำตาล(ใบเล็ก) @ 97.-บาท</td>
+                       <td class='body-td-center'>S688780000</td>
+                       <td class='body-td'></td>
+                       <td class='body-td'></td>
+                       <td class='body-td'></td>
+                       <td class='body-td-right'>1000</td>
+                       <td class='body-td-right'>700</td>
+                       <td class='body-td'></td>
+                       <td class='body-td-right'>1000</td>
+                       <td class='body-td-right'>400</td>
+                       <td class='body-td-right'></td>
+                   </tr>
+                   <tr>
+                       <td class='body-td-center'>3</td>
+                       <td class='body-td-left'>NCS 500g (1x48)</td>
+                       <td class='body-td-center'>S144240000</td>
+                       <td class='body-td'></td>
+                       <td class='body-td'></td>
+                       <td class='body-td'></td>
+                       <td class='body-td-right'>1000</td>
+                       <td class='body-td-right'>200</td>
+                       <td class='body-td'></td>
+                       <td class='body-td-right'>1000</td>
+                       <td class='body-td-right'>600</td>
+                       <td class='body-td-right'></td>
+                   </tr>
+                   <tr>
+                       <td class='body-td-center'>4</td>
+                       <td class='body-td-left'>COFFEE SUGAR 500 กรัม(1X40)</td>
+                       <td class='body-td-center'>S551840000</td>
+                       <td class='body-td'></td>
+                       <td class='body-td'></td>
+                       <td class='body-td'></td>
+                       <td class='body-td-right'>1000</td>
+                       <td class='body-td-right'>500</td>
+                       <td class='body-td'></td>
+                       <td class='body-td-right'>1000</td>
+                       <td class='body-td-right'>200</td>
+                       <td class='body-td-right'></td>
+                   </tr>
+                   <tr>
+                       <td class='body-td-center'>5</td>
+                       <td class='body-td-left'>มิตรผลโกลด์ (1x20)</td>
+                       <td class='body-td-center'>S601540000</td>
+                       <td class='body-td'></td>
+                       <td class='body-td'></td>
+                       <td class='body-td'></td>
+                       <td class='body-td-right'>1000</td>
+                       <td class='body-td-right'>300</td>
+                       <td class='body-td'></td>
+                       <td class='body-td-right'>1000</td>
+                       <td class='body-td-right'>100</td>
+                       <td class='body-td-right'></td>
+                   </tr>
+                   <tr>
+                       <td class='ft-td-center' colspan="8">รวมเป็นเงินทั้งสิ้น</td>
+                       <td colspan="4"></td>
+                   </tr>
+               </tbody>
+            </table>`
+        }
+        let pageMenu = {
+            props: ['Title'],
+            template: ` <div class="column">
+                         <div class='is-4 get-out-sugar'>{{Title}}</div>
+                        </div>`
+        }
+        var app = new Vue({
+            el: '#app',
+            components: {
+                'my-menu': Menu,
+                'user-sugar' : totalSugar,
+                'user-page-menu':pageMenu
+            },
+            data: {
+                message: 'Hello Vue!'
+            },
+            methods:{
+                disable_nav: function(e){
+                   if (e.keyCode == 27) {
+                       let menu_component = this.$children["0"];
+                       let navBarWidth = menu_component._data.navBarSide;
+                        console.log(navBarWidth); 
+                       if(navBarWidth == 250){
+                        menu_component.closeSideNav();
+                       }
+                    }
+                }
+            },
+            created: function () {
+                window.addEventListener('keyup', this.disable_nav);
+            },
+        })
+    </script>
+</html>
